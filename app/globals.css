@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #030c24;
+  --foreground: #FFFFFF;
+  --zoro-dark: #030c24;
+  --zoro-yellow: #FFC400;
+  --zoro-green: #1ED760;
+  --zoro-white: #FFFFFF;
+  --zoro-grey: #9CA3AF;
+  --zoro-card: #0A1628;
+  --zoro-border: #1a2744;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-zoro-dark { background-color: var(--zoro-dark); }
+  .bg-zoro-yellow { background-color: var(--zoro-yellow); }
+  .bg-zoro-green { background-color: var(--zoro-green); }
+  .bg-zoro-card { background-color: var(--zoro-card); }
+  
+  .text-zoro-white { color: var(--zoro-white); }
+  .text-zoro-grey { color: var(--zoro-grey); }
+  .text-zoro-yellow { color: var(--zoro-yellow); }
+  .text-zoro-green { color: var(--zoro-green); }
+  
+  .border-zoro-border { border-color: var(--zoro-border); }
+  .border-zoro-yellow { border-color: var(--zoro-yellow); }
+  .border-zoro-green { border-color: var(--zoro-green); }
+}
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a2744;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3754;
+}
+
+/* Thin scrollbar - like a line */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--zoro-grey);
+  border-radius: 1px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--zoro-yellow);
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
 }

@@ -1,0 +1,16 @@
+{
+    "crons": [
+        {
+            "path": "/api/cron/sync-matches",
+            "schedule": "*/1 * * * *"
+        },
+        {
+            "path": "/api/cron/ai-analysis",
+            "schedule": "*/30 * * * *"
+        },
+        {
+            "path": "/api/cron/scrape-predictions",
+            "schedule": "0 */6 * * *"
+        }
+    ]
+}
